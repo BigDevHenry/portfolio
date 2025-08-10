@@ -61,6 +61,7 @@
   </main>
 
   <script>
+    // Initialize EmailJS
     emailjs.init('WjxpZF4Uhv9X8MNQZ');
 
     const form = document.getElementById('contact-form');
@@ -76,6 +77,15 @@
           alert('Oops! Something went wrong.');
           console.error(error);
         });
+    });
+
+    // ⚡ Power Up Sound
+    const powerUpBtn = document.getElementById('powerUp');
+    const powerSound = new Audio('sounds/powering_up.mp3');
+
+    powerUpBtn.addEventListener('click', () => {
+      powerSound.currentTime = 0;
+      powerSound.play();
     });
   </script>
 </body>
