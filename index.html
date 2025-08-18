@@ -1,92 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>About Me</title>
-  <link rel="stylesheet" href="style.css" />
-
-  <!-- EmailJS SDK -->
-  <script src="https://cdn.emailjs.com/sdk/3.2/email.min.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Henry's Portfolio</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-  <nav>
+  <!-- Loading Screen -->
+  <div id="loading-screen">
+    <div class="scouter">
+      <p>🔴 Scanning Power Level...</p>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <header class="hero">
+    <h1>Welcome to Henry's Portfolio</h1>
+    <p>Web Developer | Creative Builder | Anime Enthusiast</p>
+  </header>
+
+  <!-- About Section -->
+  <section id="about">
+    <h2>About Me</h2>
+    <p>I'm Henry, a passionate developer creating immersive, anime-inspired web experiences. 
+       I love blending tech with creativity to build something unique for every project.</p>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects">
+    <h2>Projects</h2>
     <ul>
-      <li><a href="#top">Home</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="https://bigdevhenry.github.io/henrys-restaurant/" target="_blank">🍜 Henry's Restaurant</a></li>
+      <li><a href="#">💪 Gym Website (Coming Soon)</a></li>
+      <li><a href="#">💇 Salon Website (Coming Soon)</a></li>
+      <li><a href="#">🛒 Product Page (Coming Soon)</a></li>
     </ul>
-  </nav>
+  </section>
 
-  <main id="top">
-    <h1>Hello, I’m Henry.</h1>
-    <p>I’m learning web development to become a remote freelancer.</p>
-    <button type="button">Hire Me</button>
-    <button type="button" id="powerUp" title="Power Up!">⚡️ Power Up</button>
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>📱 Phone: 802-363-1987</p>
+    <p>📧 Email: <a href="mailto:nguyen24x@gmail.com">nguyen24x@gmail.com</a></p>
+    <p>📸 Instagram: <a href="https://instagram.com/webdevhen" target="_blank">@webdevhen</a></p>
+    <p>💻 GitHub: <a href="https://github.com/BigDevHenry" target="_blank">@BigDevHenry</a></p>
+  </section>
 
-    <section id="projects">
-      <h2>My Projects</h2>
-
-      <div class="project">
-        <h3>Portfolio Website</h3>
-        <p>A clean personal website to showcase my work and skills.</p>
-      </div>
-
-      <div class="project">
-        <h3>Landing Page</h3>
-        <p>A simple, modern landing page for a fake business.</p>
-      </div>
-
-      <div class="project">
-        <h3>Product Page</h3>
-        <p>A responsive product showcase with buttons and layout using Flexbox.</p>
-      </div>
-    </section>
-
-    <section id="contact">
-      <h2>Contact</h2>
-      <form id="contact-form">
-        <label for="name">Name</label>
-        <input type="text" id="name" name="user_name" placeholder="Your name" required />
-
-        <label for="email">Email</label>
-        <input type="email" id="email" name="user_email" placeholder="Your email" required />
-
-        <label for="message">Message</label>
-        <textarea id="message" name="message" placeholder="Your message" rows="5" required></textarea>
-
-        <button type="submit">Send Message</button>
-      </form>
-    </section>
-  </main>
-
+  <!-- Script to hide loading screen -->
   <script>
-    // Initialize EmailJS
-    emailjs.init('WjxpZF4Uhv9X8MNQZ');
-
-    const form = document.getElementById('contact-form');
-
-    form.addEventListener('submit', function(event) {
-      event.preventDefault();
-
-      emailjs.sendForm('service_c476x0o', 'template_iysqkra', this)
-        .then(() => {
-          alert('Message sent successfully!');
-          form.reset();
-        }, (error) => {
-          alert('Oops! Something went wrong.');
-          console.error(error);
-        });
-    });
-
-    // ⚡ Power Up Sound
-    const powerUpBtn = document.getElementById('powerUp');
-    const powerSound = new Audio('sounds/powering_up.mp3');
-
-    powerUpBtn.addEventListener('click', () => {
-      powerSound.currentTime = 0;
-      powerSound.play();
+    window.addEventListener("load", function() {
+      const loader = document.getElementById("loading-screen");
+      loader.style.opacity = "0";
+      setTimeout(() => {
+        loader.style.display = "none";
+      }, 1000);
     });
   </script>
 </body>
