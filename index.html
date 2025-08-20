@@ -7,55 +7,68 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Loading Screen -->
-  <div id="loading-screen">
-    <div class="scouter">
-      <p>🔴 Scanning Power Level...</p>
-    </div>
-  </div>
-
   <!-- Hero Section -->
   <header class="hero">
     <h1>Welcome to Henry's Portfolio</h1>
-    <p>Web Developer | Creative Builder | Anime Enthusiast</p>
+    <p>Web Developer | Creative Builder</p>
   </header>
+
+  <!-- Language Toggle -->
+  <div id="language-toggle">
+    <button onclick="toggleLanguage()">Español</button>
+  </div>
 
   <!-- About Section -->
   <section id="about">
-    <h2>About Me</h2>
-    <p>I'm Henry, a passionate developer creating immersive, anime-inspired web experiences. 
-       I love blending tech with creativity to build something unique for every project.</p>
+    <h2 data-en="About Me" data-es="Sobre Mí">About Me</h2>
+    <p data-en="I'm Henry, a passionate developer creating immersive, anime-inspired web experiences. I love blending tech with creativity to build something unique for every project."
+       data-es="Soy Henry, un desarrollador apasionado que crea experiencias web inmersivas inspiradas en el anime. Me encanta combinar la tecnología con la creatividad para construir algo único en cada proyecto.">
+       I'm Henry, a passionate developer creating immersive, anime-inspired web experiences. 
+       I love blending tech with creativity to build something unique for every project.
+    </p>
   </section>
 
   <!-- Projects Section -->
   <section id="projects">
-    <h2>Projects</h2>
-    <ul>
-      <li><a href="https://bigdevhenry.github.io/henrys-restaurant/" target="_blank">🍜 Henry's Restaurant</a></li>
-      <li><a href="#">💪 Gym Website (Coming Soon)</a></li>
-      <li><a href="#">💇 Salon Website (Coming Soon)</a></li>
-      <li><a href="#">🛒 Product Page (Coming Soon)</a></li>
-    </ul>
+    <h2 data-en="Projects" data-es="Proyectos">Projects</h2>
+    <div class="projects-grid">
+      <div class="project-card">
+        <a href="https://bigdevhenry.github.io/henrys-restaurant/" target="_blank">🍜 Henry's Restaurant</a>
+      </div>
+      <div class="project-card">
+        <a href="#">💪 Gym Website (Coming Soon)</a>
+      </div>
+      <div class="project-card">
+        <a href="#">💇 Salon Website (Coming Soon)</a>
+      </div>
+      <div class="project-card">
+        <a href="#">🛒 Product Page (Coming Soon)</a>
+      </div>
+    </div>
   </section>
 
   <!-- Contact Section -->
   <section id="contact">
-    <h2>Contact</h2>
-    <p>📱 Phone: 802-363-1987</p>
-    <p>📧 Email: <a href="mailto:nguyen24x@gmail.com">nguyen24x@gmail.com</a></p>
+    <h2 data-en="Contact" data-es="Contacto">Contact</h2>
+    <p>📱 WhatsApp: <a href="https://wa.me/51987654321" target="_blank">+51 987 654 321</a></p>
+    <p>📧 Email: <a href="mailto:ginyuzasama@gmail.com">ginyuzasama@gmail.com</a></p>
     <p>📸 Instagram: <a href="https://instagram.com/webdevhen" target="_blank">@webdevhen</a></p>
     <p>💻 GitHub: <a href="https://github.com/BigDevHenry" target="_blank">@BigDevHenry</a></p>
   </section>
 
-  <!-- Script to hide loading screen -->
+  <!-- Script -->
   <script>
-    window.addEventListener("load", function() {
-      const loader = document.getElementById("loading-screen");
-      loader.style.opacity = "0";
-      setTimeout(() => {
-        loader.style.display = "none";
-      }, 1000);
-    });
+    // Language toggle
+    function toggleLanguage() {
+      const elements = document.querySelectorAll("[data-en]");
+      elements.forEach(el => {
+        if (el.innerText.trim() === el.getAttribute("data-en")) {
+          el.innerText = el.getAttribute("data-es");
+        } else {
+          el.innerText = el.getAttribute("data-en");
+        }
+      });
+    }
   </script>
 </body>
 </html>

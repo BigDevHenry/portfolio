@@ -3,6 +3,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 /* Background with Going Merry */
@@ -14,22 +15,6 @@ body {
   text-align: center;
   line-height: 1.6;
   position: relative;
-}
-
-/* Naruto decals pattern */
-body::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url("images/narutoramen.jpg"), url("images/shuriken.jpg");
-  background-repeat: repeat;
-  background-size: 60px, 60px;
-  background-position: 0 0, 30px 30px; /* offset for pattern look */
-  opacity: 0.08; /* subtle effect */
-  z-index: 0;
 }
 
 /* Sections */
@@ -58,28 +43,81 @@ a:hover {
   color: #ff4500;
 }
 
-/* Loading Screen */
-#loading-screen {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%;
-  height: 100%;
-  background: black;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
-  transition: opacity 1s ease;
+/* Language Toggle */
+#language-toggle {
+  margin: 10px auto;
+  text-align: center;
+}
+#language-toggle button {
+  background: #ff4500;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+#language-toggle button:hover {
+  background: #ffae00;
 }
 
-#loading-screen .scouter {
-  color: #0f0;
-  font-family: monospace;
-  font-size: 1.5rem;
-  animation: blink 1s infinite;
+/* Projects Grid */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
 }
 
-@keyframes blink {
-  0%, 50%, 100% { opacity: 1; }
-  25%, 75% { opacity: 0.4; }
+.project-card {
+  background: rgba(0, 0, 0, 0.6);
+  border: 2px solid #ffd700;
+  border-radius: 12px;
+  padding: 30px 20px;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hover Animation: Lift + Glow + Shine Sweep */
+.project-card:hover {
+  transform: translateY(-8px) scale(1.03);
+  border-color: #ffae00;
+  animation: pulseGlow 1.5s infinite alternate;
+}
+
+.project-card::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -75%;
+  width: 50%;
+  height: 200%;
+  background: linear-gradient(120deg, rgba(255,255,255,0.2), transparent);
+  transform: skewX(-25deg);
+}
+
+.project-card:hover::after {
+  animation: shineSweep 1.5s forwards;
+}
+
+/* Pulse Glow */
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+  }
+  100% {
+    box-shadow: 0 0 25px rgba(255, 215, 0, 0.9);
+  }
+}
+
+/* Shine Sweep */
+@keyframes shineSweep {
+  0% {
+    left: -75%;
+  }
+  100% {
+    left: 125%;
+  }
 }
