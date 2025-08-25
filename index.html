@@ -7,68 +7,131 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+  <!-- Professional Loader -->
+  <div id="loader">
+    <div class="loader-content">
+      <div class="logo">💻</div>
+      <div class="dots">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </div>
+
   <!-- Hero Section -->
-  <header class="hero">
-    <h1>Welcome to Henry's Portfolio</h1>
-    <p>Web Developer | Creative Builder</p>
+  <header class="hero animate-on-scroll" role="banner">
+    <h1 data-en="Hi, I’m Henry — Web Developer" data-es="Hola, soy Henry — Desarrollador Web">Hi, I’m Henry — Web Developer</h1>
+    <p data-en="I build modern, responsive websites to help your business grow online."
+       data-es="Creo sitios web modernos y adaptables para ayudar a tu negocio a crecer en línea.">
+       I build modern, responsive websites to help your business grow online.
+    </p>
+    <a href="#projects" class="cta-btn" data-en="View My Work" data-es="Ver Mi Trabajo">💻 View My Work</a>
+    <a href="#contact" class="cta-btn secondary" data-en="Hire Me" data-es="Contrátame">📩 Hire Me</a>
   </header>
 
   <!-- Language Toggle -->
-  <div id="language-toggle">
-    <button onclick="toggleLanguage()">Español</button>
-  </div>
+  <nav id="language-toggle" role="navigation">
+    <button onclick="toggleLanguage()" aria-label="Toggle language between English and Spanish">Español</button>
+  </nav>
 
-  <!-- About Section -->
-  <section id="about">
-    <h2 data-en="About Me" data-es="Sobre Mí">About Me</h2>
-    <p data-en="I'm Henry, a passionate developer creating immersive, anime-inspired web experiences. I love blending tech with creativity to build something unique for every project."
-       data-es="Soy Henry, un desarrollador apasionado que crea experiencias web inmersivas inspiradas en el anime. Me encanta combinar la tecnología con la creatividad para construir algo único en cada proyecto.">
-       I'm Henry, a passionate developer creating immersive, anime-inspired web experiences. 
-       I love blending tech with creativity to build something unique for every project.
-    </p>
-  </section>
-
-  <!-- Projects Section -->
-  <section id="projects">
-    <h2 data-en="Projects" data-es="Proyectos">Projects</h2>
-    <div class="projects-grid">
-      <div class="project-card">
-        <a href="https://bigdevhenry.github.io/henrys-restaurant/" target="_blank">🍜 Henry's Restaurant</a>
-      </div>
-      <div class="project-card">
-        <a href="https://bigdevhenry.github.io/henrys-gym/" target="_blank">💪 Iron Haven Gym</a>
-      </div>
-      <div class="project-card">
-        <a href="#">💇 Salon Website (Coming Soon)</a>
-      </div>
-      <div class="project-card">
-        <a href="#">🛒 Product Page (Coming Soon)</a>
-      </div>
+  <main>
+    <!-- Profile 1 -->
+    <div class="profile-section animate-on-scroll">
+      <img src="images/profile1.jpg" alt="Henry Nguyen smiling, professional headshot" class="profile-img">
     </div>
-  </section>
 
-  <!-- Contact Section -->
-  <section id="contact">
-    <h2 data-en="Contact" data-es="Contacto">Contact</h2>
-    <p>📱 WhatsApp: <a href="https://wa.me/51987654321" target="_blank">+51 987 654 321</a></p>
-    <p>📧 Email: <a href="mailto:ginyuzasama@gmail.com">ginyuzasama@gmail.com</a></p>
-    <p>📸 Instagram: <a href="https://instagram.com/webdevhen" target="_blank">@webdevhen</a></p>
-    <p>💻 GitHub: <a href="https://github.com/BigDevHenry" target="_blank">@BigDevHenry</a></p>
-  </section>
+    <!-- About Section -->
+    <section id="about" class="animate-on-scroll" aria-labelledby="about-heading">
+      <h2 id="about-heading" data-en="About Me" data-es="Sobre Mí">About Me</h2>
+      <p data-en="I’m Henry, a self-taught web developer. I specialize in building fast, mobile-friendly websites for small businesses and entrepreneurs."
+         data-es="Soy Henry, un desarrollador autodidacta. Me especializo en crear sitios web rápidos y adaptables para pequeños negocios y emprendedores.">
+         I’m Henry, a self-taught web developer. I specialize in building fast, mobile-friendly websites for small businesses and entrepreneurs.
+      </p>
+      <div class="about-profile">
+        <img src="images/profile2.jpg" alt="Henry Nguyen working at his desk" class="profile-img profile-bottom">
+      </div>
+    </section>
 
-  <!-- Script -->
-  <script>
-    // Language toggle
-    function toggleLanguage() {
-      const elements = document.querySelectorAll("[data-en]");
-      elements.forEach(el => {
-        if (el.innerText.trim() === el.getAttribute("data-en")) {
-          el.innerText = el.getAttribute("data-es");
-        } else {
-          el.innerText = el.getAttribute("data-en");
-        }
-      });
-    }
-  </script>
+    <!-- Services Section -->
+    <section id="services" class="animate-on-scroll" aria-labelledby="services-heading">
+      <h2 id="services-heading" data-en="Services" data-es="Servicios">Services</h2>
+      <div class="services-grid">
+        <div class="service-card">
+          <h3 data-en="Business Websites" data-es="Sitios Web para Negocios">Business Websites</h3>
+          <p data-en="Clean, modern websites to showcase your business."
+             data-es="Sitios web limpios y modernos para mostrar tu negocio.">
+             Clean, modern websites to showcase your business.
+          </p>
+          <span class="price" data-usd="250"></span>
+        </div>
+        <div class="service-card">
+          <h3 data-en="Landing Pages" data-es="Landing Pages">Landing Pages</h3>
+          <p data-en="High-conversion pages for your product or service."
+             data-es="Páginas de alta conversión para tu producto o servicio.">
+             High-conversion pages for your product or service.
+          </p>
+          <span class="price" data-usd="150"></span>
+        </div>
+        <div class="service-card">
+          <h3 data-en="Portfolio Sites" data-es="Sitios de Portafolio">Portfolio Sites</h3>
+          <p data-en="Personal portfolios to show your work."
+             data-es="Portafolios personales para mostrar tu trabajo.">
+             Personal portfolios to show your work.
+          </p>
+          <span class="price" data-usd="200"></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="animate-on-scroll" aria-labelledby="projects-heading">
+      <h2 id="projects-heading" data-en="Projects" data-es="Proyectos">Projects</h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <img src="images/restaurant-preview.jpg" alt="Preview of Henry’s Restaurant website">
+          <h3>Henry’s Restaurant</h3>
+          <a href="https://bigdevhenry.github.io/henrys-restaurant/" target="_blank" rel="noopener noreferrer">View Live Site</a>
+        </div>
+        <div class="project-card">
+          <img src="images/gym-preview.jpg" alt="Preview of Iron Haven Gym website">
+          <h3>Iron Haven Gym</h3>
+          <a href="https://bigdevhenry.github.io/henrys-gym/" target="_blank" rel="noopener noreferrer">View Live Site</a>
+        </div>
+        <div class="project-card">
+          <img src="images/salon-preview.jpg" alt="Placeholder for upcoming Salon website">
+          <h3>Salon Website</h3>
+          <p>(Coming Soon)</p>
+        </div>
+        <div class="project-card">
+          <img src="images/product-preview.jpg" alt="Placeholder for upcoming Product Page">
+          <h3>Product Page</h3>
+          <p>(Coming Soon)</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="animate-on-scroll" aria-labelledby="contact-heading">
+      <h2 id="contact-heading" data-en="Contact" data-es="Contacto">Contact</h2>
+      <div class="contact-wrapper">
+        <div class="contact-info">
+          <p>📱 WhatsApp: <a href="https://wa.me/51987654321" target="_blank" rel="noopener noreferrer">+51 987 654 321</a></p>
+          <p>📧 Email: <a href="mailto:BigDevHenry@outlook.com">BigDevHenry@outlook.com</a></p>
+          <p>📸 Instagram: <a href="https://instagram.com/bigdevhen" target="_blank" rel="noopener noreferrer">@bigdevhen</a></p>
+          <p>💻 GitHub: <a href="https://github.com/BigDevHenry" target="_blank" rel="noopener noreferrer">@BigDevHenry</a></p>
+          <h3 data-en="Let’s build your website today 🚀" data-es="¡Construyamos tu sitio hoy 🚀">Let’s build your website today 🚀</h3>
+          <a href="mailto:BigDevHenry@outlook.com" class="cta-btn" data-en="Get in Touch" data-es="Contáctame">📧 Get in Touch</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Henry Nguyen. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
