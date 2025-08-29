@@ -29,18 +29,17 @@ function toggleLanguage() {
   updatePrices();
 }
 
-// Make hero, profiles, and prices visible on load
+// Loader fade-out & initial animations
 window.addEventListener('load', () => {
   document.querySelectorAll('.animate-on-scroll').forEach(el => el.classList.add('animate-visible'));
   updatePrices();
 
-  // Loader fade out after 2.5s
   const loader = document.getElementById('loader');
   setTimeout(() => loader.classList.add('fade-out'), 2500);
 });
 
-// Scroll animation
-const scrollElements = document.querySelectorAll("section, .project-card, .service-card, .services-grid, .projects-grid");
+// Scroll animations
+const scrollElements = document.querySelectorAll("section, .project-card, .service-card, .review-card");
 const elementInView = (el, offset=0) => el.getBoundingClientRect().top <= ((window.innerHeight || document.documentElement.clientHeight) - offset);
 const displayScrollElement = el => el.classList.add("active");
 const handleScrollAnimation = () => scrollElements.forEach(el => { if(elementInView(el,100)) displayScrollElement(el); });
